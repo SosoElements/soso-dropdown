@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>soso-dropdown demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../soso-dropdown.html">
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .container {
+        padding: 10px 0 150px;
+      }
+
+      button {
+        margin: 0 25px;
+      }
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic soso-dropdown demo</h3>
+    <demo-snippet>
+      <template>
+        <div class="container">
+          <button id="btn1">Button 1</button>
+          <button id="btn2">Button 2</button>
+          <soso-dropdown for="btn1">
+            <li>Item one</li>
+            <li>Item two</li>
+          </soso-dropdown>
+          <soso-dropdown for="btn2">
+            <li>Item one</li>
+            <li>Item two</li>
+            <li>Item three</li>
+          </soso-dropdown>
+        </div>
+      </template>
+    </demo-snippet>
+  </div>
+</body>
+
+</html>
