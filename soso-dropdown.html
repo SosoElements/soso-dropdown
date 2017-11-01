@@ -19,17 +19,22 @@
 
       #container {
         position: relative;
-        padding: 8px;
         border: 1px solid #d8d8d8;
         background: var(--soso-menu-background, white);
         border: var(--soso-menu-border, 1px solid #d8d8d8);
         outline: 0;
+        box-shadow: var(--soso-menu-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2));
       }
 
       ::slotted(li) {
         display: block;
         white-space: nowrap;
-        padding: 8px;
+        padding: 12px 16px;
+        cursor: pointer;
+      }
+
+      ::slotted(li:hover) {
+        background: var(--soso-item-hover-color, #f5f5f5);
       }
     </style>
     <div id="container" style="display: none;">
@@ -49,7 +54,8 @@
           offset: {
             type: Number,
             value: 0
-          }
+          },
+          alignment: String
         };
       }
       constructor() {
@@ -168,13 +174,23 @@
         const parentRect = this.offsetParent.getBoundingClientRect();
         const targetRect = this._target.getBoundingClientRect();
         const tipRect = this.getBoundingClientRect();
-        const horizontalCenterOffset = (targetRect.width - tipRect.width) / 2;
-        const verticalCenterOffset = (targetRect.height - tipRect.height) / 2;
         const targetLeft = targetRect.left - parentRect.left;
         const targetTop = targetRect.top - parentRect.top;
+        let horizontalCenterOffset = (targetRect.width - tipRect.width) / 2;
+        let verticalCenterOffset = (targetRect.height - tipRect.height) / 2;
+        const alignment = this.alignment || "";
+        switch (alignment) {
+          case "left":
+            horizontalCenterOffset = 0;
+            break;
+          case "right":
+            horizontalCenterOffset = (targetRect.width - tipRect.width);
+            break;
+          default:
+            break;
+        }
 
         let tooltipLeft, tooltipTop;
-        // bottom
         tooltipLeft = targetLeft + horizontalCenterOffset;
         tooltipTop = targetTop + targetRect.height + offset;
         this.style.left = tooltipLeft + 'px';

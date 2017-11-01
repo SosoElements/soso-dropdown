@@ -32,16 +32,37 @@
     <demo-snippet>
       <template>
         <div class="container">
-          <button id="btn1">Button 1</button>
-          <button id="btn2">Button 2</button>
+          <button id="btn1">Menu</button>
+          <button id="btn2">Menu offset</button>
           <soso-dropdown for="btn1">
             <li>Item one</li>
             <li>Item two</li>
+            <li>Item three</li>
           </soso-dropdown>
-          <soso-dropdown for="btn2">
+          <soso-dropdown offset="10" for="btn2">
             <li>Item one</li>
             <li>Item two</li>
             <li>Item three</li>
+            <li>Item a bit longer one</li>
+          </soso-dropdown>
+        </div>
+      </template>
+    </demo-snippet>
+    <demo-snippet>
+      <template>
+        <div class="container">
+          <button id="btn3">Left align</button>
+          <button id="btn4">Right align</button>
+          <soso-dropdown alignment="left" for="btn3">
+            <li>Item one</li>
+            <li>Item two</li>
+            <li>Item three</li>
+          </soso-dropdown>
+          <soso-dropdown alignment="right" for="btn4">
+            <li>Item one</li>
+            <li>Item two</li>
+            <li>Item three</li>
+            <li>Item a bit longer</li>
           </soso-dropdown>
         </div>
       </template>
